@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>CoronaWirus</title>
 </head>
 <body>
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ var map = L.map('map').setView([0, 0], 4);
 		}
 		var terz = aut.latest.confirmed - aut.latest.deaths - aut.latest.recovered;
 		document.getElementById("conf").innerHTML = "Total Confirmed: "+aut.latest.confirmed;
-		document.getElementById("teconf").innerHTML = "Now sick: "+terz;
+		document.getElementById("teconf").innerHTML = "Existing: "+terz;
 		document.getElementById("deat").innerHTML = "Deaths: "+aut.latest.deaths;
 		document.getElementById("reco").innerHTML = "Recovered: "+aut.latest.recovered;
 		document.getElementById("upda").innerHTML = "Update: "+aut.confirmed.last_updated;
@@ -79,7 +79,7 @@ var map = L.map('map').setView([0, 0], 4);
 
 			var terzz = aut.confirmed.locations[i].latest - aut.deaths.locations[i].latest - aut.recovered.locations[i].latest;
 		var ccc = L.marker([aut.confirmed.locations[i].coordinates.lat, aut.confirmed.locations[i].coordinates.long]).addTo(map)
-		    .bindPopup(aut.confirmed.locations[i].country+'</br>'+'Confirmed:'+aut.confirmed.locations[i].latest+'</br>'+'Deaths:'+aut.deaths.locations[i].latest+'</br>'+'Recovered:'+aut.recovered.locations[i].latest+'</br>'+'Now sick:'+terzz)
+		    .bindPopup(aut.confirmed.locations[i].country+'</br>'+'Confirmed:'+aut.confirmed.locations[i].latest+'</br>'+'Deaths:'+aut.deaths.locations[i].latest+'</br>'+'Recovered:'+aut.recovered.locations[i].latest+'</br>'+'Existing:'+terzz)
  		   .openPopup();
 		}
 	}
