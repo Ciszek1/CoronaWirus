@@ -17,6 +17,14 @@
 #stats{
 	float: left;
 }
+.gh{
+	text-align: left;
+	height: 60px;
+}
+.hes{
+	font-weight: bold;
+	width: 120px;
+}
 body
 {
 	background-color: #303030;
@@ -50,6 +58,29 @@ a:hover {
 a:active {
   color: white;
   text-decoration: none;
+}
+.conf{
+	color: #ff416c;
+	float: left;
+	margin-right: 5px;
+}
+.ded{
+	color: #8643e6;
+	float: left;
+	margin-right: 5px;
+}
+.rec{
+	color: #61ce81;
+	float: left;
+	margin-right: 5px;
+}
+.nap{
+	float: left;
+}
+.exi{
+	color: #286eff;
+	float: left;
+	margin-right: 5px;
 }
 	</style>
 
@@ -105,8 +136,8 @@ var map = L.map('map').setView([0, 0], 4);
 
 			var terzz = aut.confirmed.locations[i].latest - aut.deaths.locations[i].latest - aut.recovered.locations[i].latest;
 		var ccc = L.marker([aut.confirmed.locations[i].coordinates.lat, aut.confirmed.locations[i].coordinates.long]).addTo(map)
-		    .bindPopup(aut.confirmed.locations[i].country+'</br>'+'Confirmed:'+aut.confirmed.locations[i].latest+'</br>'+'Deaths:'+aut.deaths.locations[i].latest+'</br>'+'Recovered:'+aut.recovered.locations[i].latest+'</br>'+'Existing:'+terzz)
-		    	.bindTooltip(aut.confirmed.locations[i].country+'</br>'+'Confirmed:'+aut.confirmed.locations[i].latest+'</br>'+'Deaths:'+aut.deaths.locations[i].latest+'</br>'+'Recovered:'+aut.recovered.locations[i].latest+'</br>'+'Existing:'+terzz)
+		    .bindPopup('<center><div class="hes">'+aut.confirmed.locations[i].country+'</div><div class="gh"><div class="conf">'+aut.confirmed.locations[i].latest+'</div><div class="nap">Confirmed'+'</div></br><div class="ded">'+aut.deaths.locations[i].latest+'</div><div class="nap">'+'Deaths'+'</div></br><div class="rec">'+aut.recovered.locations[i].latest+'</div><div class="nap">Recovered'+'</div></br><div class="exi">'+terzz+'</div><div class="nap">Existing:</div>')
+		    	.bindTooltip('<center><div class="hes">'+aut.confirmed.locations[i].country+'</div><div class="gh"><div class="conf">'+aut.confirmed.locations[i].latest+'</div><div class="nap">Confirmed'+'</div></br><div class="ded">'+aut.deaths.locations[i].latest+'</div><div class="nap">'+'Deaths'+'</div></br><div class="rec">'+aut.recovered.locations[i].latest+'</div><div class="nap">Recovered'+'</div></br><div class="exi">'+terzz+'</div><div class="nap">Existing:</div>')
  		   .openPopup();
 		}
 	}
