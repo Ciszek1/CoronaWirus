@@ -137,7 +137,7 @@ var map = L.map('map').setView([0, 0], 4);
 
 			var terzz = aut.confirmed.locations[i].latest - aut.deaths.locations[i].latest - aut.recovered.locations[i].latest;
 		var ccc = L.marker([aut.confirmed.locations[i].coordinates.lat, aut.confirmed.locations[i].coordinates.long]).addTo(map)
-		    .bindPopup('<center><div class="hes">'+aut.confirmed.locations[i].country+'</div><div class="gh"><div class="conf">'+aut.confirmed.locations[i].latest+'</div><div class="nap">Confirmed'+'</div></br><div class="ded">'+aut.deaths.locations[i].latest+'</div><div class="nap">'+'Deaths'+'</div></br><div class="rec">'+aut.recovered.locations[i].latest+'</div><div class="nap">Recovered'+'</div></br><div class="exi">'+terzz+'</div><div class="nap">Existing:</div>')
+		    .bindPopup('<center><div class="hes"><img width="20px" height="17px" src="https://www.countryflags.io/'+aut.confirmed.locations[i].country_code+'/flat/24.png">  '+aut.confirmed.locations[i].country+'</div><div class="gh"><div class="conf">'+aut.confirmed.locations[i].latest+'</div><div class="nap">Confirmed'+'</div></br><div class="ded">'+aut.deaths.locations[i].latest+'</div><div class="nap">'+'Deaths'+'</div></br><div class="rec">'+aut.recovered.locations[i].latest+'</div><div class="nap">Recovered'+'</div></br><div class="exi">'+terzz+'</div><div class="nap">Existing</div>')
  		   .openPopup();
 		}
 	}
