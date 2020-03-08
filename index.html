@@ -39,7 +39,7 @@ body
 	<link rel="stylesheet" type="text/css" href="\astro.pl/css/Menu.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 	<script src=" https://unpkg.com/@joergdietrich/leaflet.terminator@1.0.0/L.Terminator.js"></script>
-		
+	<script type="text/javascript" src="http://leaflet.github.io/Leaflet.label/leaflet.label.js"></script>
 	</script>
 </head>
 <body>
@@ -80,11 +80,13 @@ var map = L.map('map').setView([0, 0], 4);
 			var terzz = aut.confirmed.locations[i].latest - aut.deaths.locations[i].latest - aut.recovered.locations[i].latest;
 		var ccc = L.marker([aut.confirmed.locations[i].coordinates.lat, aut.confirmed.locations[i].coordinates.long]).addTo(map)
 		    .bindPopup(aut.confirmed.locations[i].country+'</br>'+'Confirmed:'+aut.confirmed.locations[i].latest+'</br>'+'Deaths:'+aut.deaths.locations[i].latest+'</br>'+'Recovered:'+aut.recovered.locations[i].latest+'</br>'+'Existing:'+terzz)
+		    	.bindTooltip(aut.confirmed.locations[i].country+'</br>'+'Confirmed:'+aut.confirmed.locations[i].latest+'</br>'+'Deaths:'+aut.deaths.locations[i].latest+'</br>'+'Recovered:'+aut.recovered.locations[i].latest+'</br>'+'Existing:'+terzz)
  		   .openPopup();
 		}
 	}
 		//setInterval(d, 5000)
 	</script>
+	<a href="/Stats">
 	<div id="stats">
 		<h1>Statistic:</h1>
 		<h5><div id="conf"></div></h5>
@@ -93,7 +95,7 @@ var map = L.map('map').setView([0, 0], 4);
 		<h5><div id="reco"></div></h5>
 
 	</div><div style="clear: both;"></div>
-	<div id="upda"></div>
+	<div id="upda"></div></a>
 </body>
 </html>
 </body>
