@@ -125,6 +125,13 @@ var map = L.map('map').setView([0, 0], 4);
 			if (kk > 0) {
 			// map.removeLayer(xd);
 		}
+		/*
+				document.getElementById("conf").innerHTML = "<div class='nap'>Confirmed: </div><div class='conf'>"+aut.latest.confirmed+"</div></br>";
+		document.getElementById("teconf").innerHTML = "<div class='nap'>Existing: </div><div class='exi'>"+terz+"</div></br>";
+		document.getElementById("deat").innerHTML = "<div class='nap'>Deaths: </div><div class='ded'>"+aut.latest.deaths+"</div></br>";
+		document.getElementById("reco").innerHTML = "Recovered: "+aut.latest.recovered;
+		document.getElementById("upda").innerHTML = "Update: "+aut.confirmed.last_updated;
+		*/
 		var terz = aut.latest.confirmed - aut.latest.deaths - aut.latest.recovered;
 		document.getElementById("conf").innerHTML = "Total Confirmed: "+aut.latest.confirmed;
 		document.getElementById("teconf").innerHTML = "Existing: "+terz;
@@ -157,3 +164,14 @@ var map = L.map('map').setView([0, 0], 4);
 </html>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
