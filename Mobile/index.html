@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-<!DOCTYPE html>
-<html>
+<html amp>
 <head>
 
 	<style type="text/css">
@@ -101,9 +95,8 @@ a:active {
 	height: 300px;
 }
 	</style>
-
-
-
+	    <link rel="canonical" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
   crossorigin=""/>
@@ -115,9 +108,7 @@ a:active {
 	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 	<script src=" https://unpkg.com/@joergdietrich/leaflet.terminator@1.0.0/L.Terminator.js"></script>
 		
-	<script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-	</script>
+<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 </head>
 <body>
 
@@ -171,7 +162,7 @@ var map = L.map('map').setView([0, 0], 4);
 		<h5><div id="deat"></div></h5>
 		<h5><div id="reco"></div></h5>
 		<br>
-		<div id="ads"><amp-auto-ads type="adsense"data-ad-client="ca-pub-6897756570886116"></amp-auto-ads></div>
+		<div id="ads"><amp-adlayout="fixed"width="300"height="300"type="adsense"data-ad-client="ca-pub-6897756570886116"data-ad-slot="4485532895"></amp-ad></div>
 	</div><div style="clear: both;"></div>
 	<div id="upda"></div>
 </body>
