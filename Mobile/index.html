@@ -81,6 +81,25 @@ a:active {
 	float: left;
 	margin-right: 5px;
 }
+#conf{
+	font-size: 30px;
+    font-weight: 700;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    border: 1px solid var(--border);
+    width: 100%;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 5px;
+    border-radius: 30px;
+    background: var(--card);
+}
+#ads{
+	width: 300px;
+	height: 300px;
+}
 	</style>
 
 
@@ -96,6 +115,8 @@ a:active {
 	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 	<script src=" https://unpkg.com/@joergdietrich/leaflet.terminator@1.0.0/L.Terminator.js"></script>
 		
+	<script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
 	</script>
 </head>
 <body>
@@ -149,7 +170,8 @@ var map = L.map('map').setView([0, 0], 4);
 		<h5><div id="teconf"></div></h5>
 		<h5><div id="deat"></div></h5>
 		<h5><div id="reco"></div></h5>
-
+		<br>
+		<div id="ads"><amp-auto-ads type="adsense"data-ad-client="ca-pub-6897756570886116"></amp-auto-ads></div>
 	</div><div style="clear: both;"></div>
 	<div id="upda"></div>
 </body>
