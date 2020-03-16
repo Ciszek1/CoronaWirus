@@ -1,7 +1,4 @@
 function start(){
-	jQuery(document).ready(function(){
-	jQuery.fn.cookiesEU();
-});
 	var mymap = L.map('Map', {
 		    minZoom: 2
 	}).setView([51.505, -0.09], 2);
@@ -21,7 +18,6 @@ function start(){
     	document.querySelector('#Zmar').innerHTML = data.latest.deaths;
     	document.querySelector('#Wyzdr').innerHTML = data.latest.recovered;
     	document.querySelector('#Chorz').innerHTML = data.latest.confirmed - data.latest.deaths - data.latest.recovered;
-    	console.log(data.confirmed.locations[i].coordinates.lat+", "+data.confirmed.locations[i].coordinates.long)
     	var markers = L.marker([data.confirmed.locations[i].coordinates.lat, data.confirmed.locations[i].coordinates.long], {myCustomId: i})
     	.addTo(mymap).on('mouseover', onClick);
     }
