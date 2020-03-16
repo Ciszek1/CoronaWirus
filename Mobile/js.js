@@ -18,13 +18,15 @@ function start(){
     	.addTo(mymap).on('click', onClick);
     }
 
+	document.getElementById("Wysz").addEventListener("input", wyszuk());
+
     function onClick(e) {
     console.log(this.options.myCustomId)
     var terzz = data.confirmed.locations[this.options.myCustomId].latest - data.deaths.locations[this.options.myCustomId].latest - data.recovered.locations[this.options.myCustomId].latest;
     this.bindPopup('<center><div class="hes"><img width="20px" height="17px" src="https://www.countryflags.io/'+data.confirmed.locations[this.options.myCustomId].country_code+'/flat/24.png">  '+data.confirmed.locations[this.options.myCustomId].country+'</div><div class="gh"><div class="conf">'+data.confirmed.locations[this.options.myCustomId].latest+'</div><div class="nap">Confirmed'+'</div></br><div class="ded">'+data.deaths.locations[this.options.myCustomId].latest+'</div><div class="nap">'+'Deaths'+'</div></br><div class="rec">'+data.recovered.locations[this.options.myCustomId].latest+'</div><div class="nap">Recovered'+'</div></br><div class="exi">'+terzz+'</div><div class="nap">Existing</div>').addTo(mymap);
     this.openPopup();
-	}
-    document.querySelector('#Wysz').oninput = function (){
+
+    function wyszuk(){
 
     	document.getElementById("wyszukiwarka").classList.add("widzialny");
     	document.getElementById("wyszukiwarka").classList.remove("niewidzialny");
@@ -52,7 +54,7 @@ function start(){
 		var result = fuse.search(val);
 		console.log(result);
 		var to = "";
-	    for (var i = 0; i < result.length && i < 4; i++) {
+	    for (var i = 0; i < result.length && i < 10; i++) {
 
 	    	const key = ff.find(ff => ff.country === result[i].country);
 	    	console.log(key);
@@ -62,8 +64,9 @@ function start(){
 		document.querySelector("#wyszukiwarka").innerHTML = to;
 
 
-    }
-});
+	}
+	document.getElementById("Wysz").addEventListener("input", wyszuk);
+}});
 }
 
 
