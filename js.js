@@ -20,7 +20,10 @@ function start(){
     	document.querySelector('#Chorz').innerHTML = data.latest.confirmed - data.latest.deaths - data.latest.recovered;
     	var markers = L.marker([data.confirmed.locations[i].coordinates.lat, data.confirmed.locations[i].coordinates.long], {myCustomId: i})
     	.addTo(mymap).on('mouseover', onClick);
-    }
+	}
+
+
+
 
     function onClick(e) {
     console.log(this.options.myCustomId)
@@ -49,7 +52,8 @@ function start(){
 		  maxPatternLength: 32,
 		  minMatchCharLength: 1,
 		  keys: [
-		    "country"
+			"country",
+			"province"
 		  ]
 		};
 		var fuse = new Fuse(ff, options); // "list" is the item array
