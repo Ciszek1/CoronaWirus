@@ -15,11 +15,14 @@ function titleCase(string) {
 function start(){
 	var mymap = L.map('Map', {
 		minZoom: 7
-}).setView([52,20], 7);
+}).setView([52.125736,19.080392], 7);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-      }).addTo(mymap);
+	  }).addTo(mymap);
+	  mymap.dragging.disable();
+
+
 	fetch('https://api.apify.com/v2/key-value-stores/3Po6TV7wTht4vIEid/records/LATEST?disableRedirect=true')
 	.then((response) => {
     return response.json();
