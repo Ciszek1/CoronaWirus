@@ -30,7 +30,7 @@ function start(){
 	console.log(data);
 	var chorzy = data.infected;
 	var smierci = data.deceased;
-	var zdrowi = '0';
+	var zdrowi = '1';
 	console.log("Chorzy: "+chorzy+" Śmierci: "+smierci);
 	document.querySelector('#Dane').innerHTML = "Dane z "+data.lastUpdatedAtApify+". Ze strony <a href='"+data.sourceUrl+"'>"+data.sourceUrl+"</a>";
 	document.querySelector('#Potwie').innerHTML = chorzy;
