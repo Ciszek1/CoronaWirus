@@ -1,313 +1,140 @@
-body{
-	font-family: 'Raleway', sans-serif;
-	background-color: #ffffff;
-}
-#Container{
-	width: 100%;
-	height: 100%;
-}
-#Napis{
-	width: 100%;
-	height: 50px;
-	text-align: center;
-}
-input[type=text]{
-	font-size: 35px;
-	width: 60%;
-	height: 100%;
-	box-shadow: 0px 0px 29px 21px rgba(0,0,0,0.24);
-	border-radius: 30px;
-	border: 5px solid #666666;
-	background-color: #a0a0a0;
-	color: #666666;
-	text-align: center;
-	transition: all 0.2s linear;
-	clear: both;
-}
-input[type=text]:hover
-{
-	width: 75%;
-}
-input[type=text]:focus
-{
-	width: 75%;
-}
-.wyszukane{
-	margin-right: auto;
-	margin-left: auto;
-	width: 60%;
-	height: 15%;
-	border: 5px solid #666666;
-	border-radius: 30px;
-	margin-top: 40px;
-	box-shadow: 0px 0px 29px 21px rgba(0,0,0,0.24);
-
-}
-#wyszukiwarka{
-	position: absolute;
-	background-color: white;
-	width: 99%;
-	height: 85.85%;
-	margin-top: 75px;
-	top: 0;
-
-}
-.flag{
-	float: left;
-	width: 10%;
-	height: 100%;
-	margin: auto;
-	border-right: solid #666666;
-	text-align: center;
-
-}
-.info{
-	float: left;
-	margin-left: 10px;
-	width: 87.835%;
-	height: 100%;
-}
-.NazwaKraju{
-	border-bottom: solid #666666;
-	font-size: 28px;
-	font-weight: bold;
-}
-.info2{
-	font-size: 20px;
-}
-.niewidzialny{
-	display: none;
-	z-index: -99999;
-}
-.widzialny{
-	display: block;
-	z-index: 9999;
-}
-#Content{
-	width: 100%;
-	height: 70%;
-	margin-top: 30px;
-}
-#Map{
-	border-radius: 30px;
-	float: left;
-	width: 75%;
-	height: 570px;
-}
-#Obok{
-	float: left;
-	text-align: center;
-}
-#Stopka{
-	width: 100%;
-	clear: both;
-}
-.TextGora{
-	margin-top: 13px;
-	margin-bottom: 13px;
-	font-size: 30px;
-	font-weight: bold;
-	position: relative;
-}
-.TextDoł{
-	font-size: 19px;
-}
-.Licznik{
-	border-radius: 15px;
-	width: 150px;
-	height: 90px;
-	float: left;
-	margin: 10px;
-	text-align: center;
-	border: 5px solid #666666;
-	box-shadow: 0px 0px 29px 21px rgba(0,0,0,0.24);
-	background-color: #a0a0a0;
-	color: #666666;
-}
-#AD{
-	width: 250px;
-	height: 250px;
-
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 40px;
-	border-radius: 15px;
-}
-.conf{
-	color: #ff416c;
-	float: left;
-	margin-right: 5px;
-}
-.ded{
-	color: #8643e6;
-	float: left;
-	margin-right: 5px;
-}
-.rec{
-	color: #61ce81;
-	float: left;
-	margin-right: 5px;
-}
-.nap{
-	float: left;
-}
-.exi{
-	color: #286eff;
-	float: left;
-	margin-right: 5px;
-}
-.wy{
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	background: white;
-	z-index: 10000;
-}
-.nz{
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	width: 0%;
-	height: 0%;
-	background: white;
-	z-index: -1000000;
-}
-#Namew{
-	margin-right: auto;
-	margin-left: auto;
-
-}
-.gh{
-	text-align: left;
-	height: 60px;
-}
-.hes{
-	font-weight: bold;
-	width: 120px;
-}
-#Napis > button{
-	float: left;
-	font-size: 28px;
-	height: 100%;
-	box-shadow: 0px 0px 29px 21px rgba(0,0,0,0.24);
-	border-radius: 30px;
-	border: 5px solid #666666;
-	background-color: #a0a0a0;
-	color: #666666;
-	text-align: center;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  .sidebar {
-	height: 100%;
-	width: 0;
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background-color: #111;
-	overflow-x: hidden;
-	transition: 0.5s;
-	padding-top: 60px;
-	z-index: 999999;
+function titleCase(string) {
+	var sentence = string.toLowerCase().split(" ");
+	for(var i = 0; i< sentence.length; i++){
+	   sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+	}
+ return sentence;
+ }
+ function openNav() {
+	document.getElementById("mySidebar").style.width = "250px";
+	document.getElementById("main").style.marginLeft = "250px";
   }
   
-  .sidebar a {
-	padding: 8px 8px 8px 32px;
-	text-decoration: none;
-	font-size: 25px;
-	color: #818181;
-	display: block;
-	transition: 0.3s;
+  function closeNav() {
+	document.getElementById("mySidebar").style.width = "0";
+	document.getElementById("main").style.marginLeft= "0";
   }
-  
-  .sidebar a:hover {
-	color: #f1f1f1;
-  }
-  
-  .sidebar .closebtn {
-	position: absolute;
-	top: 0;
-	right: 25px;
-	font-size: 36px;
-	margin-left: 50px;
-  }
-  
-  .openbtn {
-	font-size: 20px;
-	cursor: pointer;
-	background-color: #111;
-	color: white;
-	padding: 10px 15px;
-	border: none;
-  }
-  
-  .openbtn:hover {
-	background-color: #444;
-  }
-  
-  #main {
-	transition: margin-left .5s;
-	padding: 16px;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-	.sidebar {padding-top: 15px;}
-	.sidebar a {font-size: 18px;}
-  }
+
+
+
+
+function start(){
+	var mymap = L.map('Map', {
+		    minZoom: 6
+	}).setView([52.125736,19.080392], 6);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+	  }).addTo(mymap);
+	  mymap.dragging.disable();
+
+
+
+	fetch('https://api.apify.com/v2/key-value-stores/3Po6TV7wTht4vIEid/records/LATEST?disableRedirect=true')
+	.then((response) => {
+    return response.json();
+	})
+	.then((data) => {
+	console.log(data);
+	var chorzy = data.infected;
+	var smierci = data.deceased;
+	var zdrowi = '0';
+	console.log("Chorzy: "+chorzy+" Śmierci: "+smierci);
+	document.querySelector('#Dane').innerHTML = "Dane z "+data.lastUpdatedAtApify+". Ze strony <a href='"+data.sourceUrl+"'>"+data.sourceUrl+"</a>";
+	document.querySelector('#Potwie').innerHTML = chorzy;
+	document.querySelector('#Zmar').innerHTML = smierci;
+	document.querySelector('#Wyzdr').innerHTML = zdrowi
+	document.querySelector('#Chorz').innerHTML = chorzy - smierci - zdrowi;
+    var dolnoslaskie = L.marker([51.2001881,16.2611663], {myCustomId: 1})
+	.addTo(mymap).on('mouseover', onClick);
+	var kujawskopomorskie = L.marker([53.1185761,18.1877976], {myCustomId: 2})
+	.addTo(mymap).on('mouseover', onClick);
+	var lubelskie = L.marker([51.2703768,22.571149], {myCustomId: 3})
+	.addTo(mymap).on('mouseover', onClick);
+	var lubuskie = L.marker([52.2299127,15.333197], {myCustomId: 4})
+	.addTo(mymap).on('mouseover', onClick);
+	var lodzkie = L.marker([51.6847673,19.4620422], {myCustomId: 5})
+	.addTo(mymap).on('mouseover', onClick);
+	var malopolskie = L.marker([49.8925399,20.121513], {myCustomId: 6})
+	.addTo(mymap).on('mouseover', onClick);
+	var mazowieckie = L.marker([52.2474351,21.1087746], {myCustomId: 7})
+	.addTo(mymap).on('mouseover', onClick);
+	var opolskie = L.marker([50.6524978,17.8857739], {myCustomId: 8})
+	.addTo(mymap).on('mouseover', onClick);
+	var podkarpackie = L.marker([50.0300812,22.2125714], {myCustomId: 9})
+	.addTo(mymap).on('mouseover', onClick);
+	var podlaskie = L.marker([53.1583516,23.0446866], {myCustomId: 10})
+	.addTo(mymap).on('mouseover', onClick);
+	var pomorskie = L.marker([54.2534176,18.0772627], {myCustomId: 11})
+	.addTo(mymap).on('mouseover', onClick);
+	var slaskie = L.marker([50.2945824,18.9887949], {myCustomId: 12})
+	.addTo(mymap).on('mouseover', onClick);
+	var swietokrzyskie = L.marker([50.7348736,20.7483421], {myCustomId: 13})
+	.addTo(mymap).on('mouseover', onClick);
+	var warminskomazurskie = L.marker([53.8485797,20.937152], {myCustomId: 14})
+	.addTo(mymap).on('mouseover', onClick);
+	var wielkopolskie = L.marker([52.3616119,17.0551694], {myCustomId: 15})
+	.addTo(mymap).on('mouseover', onClick);
+	var zachodniopomorskie = L.marker([53.6105828,15.5665963], {myCustomId: 16})
+    .addTo(mymap).on('mouseover', onClick);
+
+
+
+
+    function onClick(e) {
+	console.log(this.options.myCustomId);
+	var ID = this.options.myCustomId - 1
+	var namew = titleCase(data.infectedByRegion[ID].region);
+	var chorzyw = data.infectedByRegion[ID].infectedCount;
+	var smieciw = data.infectedByRegion[ID].deceasedCount;
+	var zdrowiw = 0;
+    var terzz = chorzyw - smieciw - zdrowiw;
+    this.bindPopup('<center><div class="hes">'+namew+'</div><div class="gh"><div class="conf">'+chorzyw+'</div><div class="nap">Confirmed'+'</div></br><div class="ded">'+smieciw+'</div><div class="nap">'+'Deaths'+'</div></br><div class="rec">'+zdrowiw+'</div><div class="nap">Recovered'+'</div></br><div class="exi">'+terzz+'</div><div class="nap">Existing</div>').addTo(mymap);
+    this.openPopup();
+
+    document.querySelector('#Wysz').oninput = function (){
+
+    	document.getElementById("wyszukiwarka").classList.add("widzialny");
+    	document.getElementById("wyszukiwarka").classList.remove("niewidzialny");
+
+    	var val = document.querySelector('#Wysz').value;
+
+    	if (val == "") {
+    	document.getElementById("wyszukiwarka").classList.remove("widzialny");
+    	document.getElementById("wyszukiwarka").classList.add("niewidzialny");
+    	}
+
+	    var ff = data.infectedByRegion;
+		var options = {
+		  shouldSort: true,
+		  threshold: 0,
+		  location: 0,
+		  distance: 10,
+		  maxPatternLength: 32,
+		  minMatchCharLength: 1,
+		  keys: [
+		    "region"
+		  ]
+		};
+		var fuse = new Fuse(ff, options); // "list" is the item array
+		var result = fuse.search(val);
+		console.log(result);
+		var to = "";
+	    for (var i = 0; i < result.length && i < 4; i++) {
+
+	    	const key = ff.find(ff => ff.country === result[i].country);
+	    	console.log(key);
+			var nazwaE = titleCase(result[i].region);
+			var chorzyE = result[i].infectedCount;
+			var smierciE = result[i].deceasedCount;
+			var zdrowiE = 0;
+	    	to = to+"<div class='wyszukane'><div class='flag'></div><div class='info'><div class='NazwaKraju'>Kraj: "+nazwaE+"</div><br/><div class='info2'> Potwierdzone: "+chorzyE+".	Śmierci: "+smierciE+"</div></div></div><br/>";
+	    }
+		document.querySelector("#wyszukiwarka").innerHTML = to;
+
+
+    }
+}});
+}
+
+
