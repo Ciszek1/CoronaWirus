@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="css.css">
+
+        <!--Potrzebne-->
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://skrypt-cookies.pl/id/92bc5c1e1b78e6ee.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNH187K1YL"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-WNH187K1YL');</script>
+        <!--KONIEC-->
+
+
+    </head>
+    <body>
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="/CoronaWirus/">MAPA - ŚWIAT</a>
+            <a href="/CoronaWirus/Polska/">MAPA - POLSKA</a>
+            <a href="/CoronaWirus/Wykresy/">WYKRESY - ŚWIAT</a>
+            <a href="/CoronaWirus/Polska/Wykresy/">WYKRESY - POLSKA</a>
+          </div>
+          <button onclick="openNav()">☰Menu</button><br/><br>
+        <div class="wykres">
+            <h1>Przypadki zachorowań i przypadki śmiertelne według województw</h1>
+            <canvas id="myChart" width="1000px" height="630px"></canvas><br>
+        </div>
+        <div class="wykres">
+             <h1>Skumulowane przypadki zachorowań i przypadki śmiertelne w czasie</h1>
+             <canvas id="wyChart" width="1000px" height="630px"></canvas>
+         </div>
+        <div class="wykres">
+            <h1>Wykres czasu</h1>
+            <canvas id="wyChart" width="1000px" height="630px"></canvas>
+        </div>
+        <script src="js.js"></script>
+    </body>
+</html>
