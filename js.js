@@ -40,9 +40,14 @@ function start(){
 
 
     function onClick(e) {
-    console.log(this.options.myCustomId)
+	console.log(this.options.myCustomId)
+	if(data.confirmed.locations[this.options.myCustomId].province == ""){
+		var conss = data.confirmed.locations[this.options.myCustomId].country
+	}else{
+		var conss = data.confirmed.locations[this.options.myCustomId].country+" - "+data.confirmed.locations[this.options.myCustomId].province;
+	}
     var terzz = data.confirmed.locations[this.options.myCustomId].latest - data.deaths.locations[this.options.myCustomId].latest - data.recovered.locations[this.options.myCustomId].latest;
-    this.bindPopup('<center><div class="hes"><img width="20px" height="17px" src="https://www.countryflags.io/'+data.confirmed.locations[this.options.myCustomId].country_code+'/flat/24.png">  '+data.confirmed.locations[this.options.myCustomId].country+'</div><div class="gh"><div class="conf">'+data.confirmed.locations[this.options.myCustomId].latest+'</div><div class="nap">Confirmed'+'</div></br><div class="ded">'+data.deaths.locations[this.options.myCustomId].latest+'</div><div class="nap">'+'Deaths'+'</div></br><div class="rec">'+data.recovered.locations[this.options.myCustomId].latest+'</div><div class="nap">Recovered'+'</div></br><div class="exi">'+terzz+'</div><div class="nap">Existing</div>').addTo(mymap);
+    this.bindPopup('<center><div class="hes"><img width="20px" height="17px" src="https://www.countryflags.io/'+data.confirmed.locations[this.options.myCustomId].country_code+'/flat/24.png">  '+conss+'</div><div class="gh"><div class="conf">'+data.confirmed.locations[this.options.myCustomId].latest+'</div><div class="nap">Confirmed'+'</div></br><div class="ded">'+data.deaths.locations[this.options.myCustomId].latest+'</div><div class="nap">'+'Deaths'+'</div></br><div class="rec">'+data.recovered.locations[this.options.myCustomId].latest+'</div><div class="nap">Recovered'+'</div></br><div class="exi">'+terzz+'</div><div class="nap">Existing</div>').addTo(mymap);
     this.openPopup();
 
     document.querySelector('#Wysz').oninput = function (){
@@ -78,8 +83,12 @@ function start(){
 
 	    	const key = ff.find(ff => ff.country === result[i].country);
 	    	console.log(key);
-
-	    	to = to+"<div class='wyszukane'><div class='flag'><img src='https://www.countryflags.io/"+result[i].country_code+"/flat/64.png' /></div><div class='info'><div class='NazwaKraju'>Kraj: "+result[i].country+"</div><br/><div class='info2'> Potwierdzone: "+result[i].latest+"</div></div></div><br/>";
+			if(result[i].province == ""){
+				var gggg = result[i].country;
+			}else{
+				var gggg = result[i].country+" - "+result[i].province;
+			}
+	    	to = to+"<div class='wyszukane'><div class='flag'><img src='https://www.countryflags.io/"+result[i].country_code+"/flat/64.png' /></div><div class='info'><div class='NazwaKraju'>Kraj: "+gggg+"</div><br/><div class='info2'> Potwierdzone: "+result[i].latest+"</div></div></div><br/>";
 	    }
 		document.querySelector("#wyszukiwarka").innerHTML = to;
 
