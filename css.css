@@ -49,6 +49,8 @@ input[type=text]:focus
 	height: 85.85%;
 	margin-top: 75px;
 	top: 0;
+	animation: gora 1s;
+	border-radius: 30px;
 
 }
 .flag{
@@ -299,7 +301,10 @@ input[type=text]:focus
 
 
 
-
+@keyframes gora {
+	from {top: -1000px;}
+	to {top: 0px;}
+  }
 
 
 
