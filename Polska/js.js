@@ -78,7 +78,8 @@ function start(){
 	var zachodniopomorskie = L.marker([53.6105828,15.5665963], {myCustomId: 16})
     .addTo(mymap).on('mouseover', onClick);
 
-
+	document.getElementById("loader").classList.remove("widzialny");
+	document.getElementById("loader").classList.add("niewidzialny");
 
 
     function onClick(e) {
