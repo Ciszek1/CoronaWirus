@@ -31,13 +31,13 @@ document.querySelector('#Dane').innerHTML = "Dane z "+data.confirmed.last_update
     	document.querySelector('#Zmar').innerHTML = data.latest.deaths;
     	document.querySelector('#Wyzdr').innerHTML = data.latest.recovered;
     	document.querySelector('#Chorz').innerHTML = data.latest.confirmed - data.latest.deaths - data.latest.recovered;
-
+	document.getElementById("loader").classList.remove("widzialny");
+	  document.getElementById("loader").classList.add("niewidzialny");
     for (var i = 0; i <= data.confirmed.locations.length; i++) {
     	var markers = L.marker([data.confirmed.locations[i].coordinates.lat, data.confirmed.locations[i].coordinates.long], {myCustomId: i})
     	.addTo(mymap).on('mouseover', onClick);
 	}
-		document.getElementById("loader").classList.remove("widzialny");
-	  document.getElementById("loader").classList.add("niewidzialny");
+
 
 
     function onClick(e) {
