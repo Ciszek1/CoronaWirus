@@ -53,6 +53,81 @@ input[type=text]:focus
 	border-radius: 30px;
 
 }
+#stats{
+	position: absolute;
+	box-shadow: 0px 0px 29px 21px rgba(0,0,0,0.24);
+	background-color: white;
+	width: 98%;
+	height: 89%;
+	margin-top: 70px;
+	top: 0;
+	animation: dol 1s;
+	border-radius: 30px;
+
+}
+#stats > button{
+	float: left;
+	font-size: 28px;
+	height: 60px;
+	width: 60px;
+	margin-top: 20px;
+	margin-left: 20px;
+	box-shadow: 0px 0px 29px 21px rgba(0,0,0,0.24);
+	border-radius: 30px;
+	border: 5px solid #666666;
+	background-color: #a0a0a0;
+	color: #666666;
+	text-align: center;
+}
+#nazwa{
+	text-align: center;
+	font-size: 50px;
+	font-weight: bold;
+}
+#wykresy{
+	overflow: auto;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	height: 76vh;
+}
+.wykres{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+}
+#guralicznik{
+	margin-left: auto;
+	margin-right: auto;
+
+	display: flex;
+}
+#guralicznik > .Licznik:nth-child(1){
+	margin-left: auto;
+}
+#guralicznik > .Licznik:nth-child(4){
+	margin-right: auto;
+}
+#guralicznik > .Licznik:nth-child(1):hover {
+	color: #ff416c !important;
+	border-color: #ff416c;
+}
+#guralicznik > .Licznik:nth-child(2):hover {
+	color: #8643e6 !important;
+	border-color: #8643e6;
+}
+#guralicznik > .Licznik:nth-child(3):hover {
+	color: #61ce81 !important;
+	border-color: #61ce81;
+}
+#guralicznik > .Licznik:nth-child(4):hover {
+	color: #286eff !important;
+	border-color: #286eff;
+}
+.wykres > h1{
+	font-size: 2em;
+}
 .flag{
 	float: left;
 	width: 10%;
@@ -61,6 +136,9 @@ input[type=text]:focus
 	border-right: solid #666666;
 	text-align: center;
 
+}
+.flag > img{
+	margin-top: 20px;
 }
 .info{
 	float: left;
@@ -79,6 +157,7 @@ input[type=text]:focus
 .niewidzialny{
 	display: none;
 	z-index: -99999;
+	animation: znikane 1s step-end;
 }
 .widzialny{
 	display: block;
@@ -124,6 +203,22 @@ input[type=text]:focus
 	box-shadow: 0px 0px 29px 21px rgba(0,0,0,0.24);
 	background-color: #a0a0a0;
 	color: #666666;
+}
+#LicznikGura > .Licznik:nth-child(1):hover {
+	color: #ff416c !important;
+	border-color: #ff416c;
+}
+#LicznikGura > .Licznik:nth-child(2):hover {
+	color: #8643e6 !important;
+	border-color: #8643e6;
+}
+#LicznikDoł > .Licznik:nth-child(1):hover {
+	color: #61ce81 !important;
+	border-color: #61ce81;
+}
+#LicznikDoł > .Licznik:nth-child(2):hover {
+	color: #286eff !important;
+	border-color: #286eff;
 }
 #AD{
 	width: 250px;
@@ -224,6 +319,42 @@ input[type=text]:focus
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #loader{
 	position: absolute;
 	background-color: white;
@@ -301,16 +432,26 @@ input[type=text]:focus
 
 
 
-@keyframes gora {
-	from {top: -1000px;}
-	to {top: 0px;}
+
+  @keyframes znikane {
+	from {opacity: 100;}
+	to {opacity: 0;display: none;}
   }
 
 
 
-
-
-
+@keyframes gora {
+	from {top: -1000px;}
+	to {top: 0px;}
+  }
+  @keyframes dol {
+	from {top: 1000px;}
+	to {top: 0px;}
+  }
+  @keyframes znikane {
+	from {opacity: 100;}
+	to {opacity: 0;}
+  }
 
 
 
