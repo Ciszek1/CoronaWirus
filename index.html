@@ -27,7 +27,7 @@
 <meta name="author" content="Ciszek">
 <title>Mapa KoronaWirus(COVID-19)</title>
 <!--Koniec MetaDene-->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 
         <!--Potrzebne-->
         <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -81,7 +81,7 @@
 						<div id="Wyzdr"></div>
 					</div>
 					<div class="TextDoł">
-						Uzdrowiało
+						Wyzdrowiałych
 					</div>
 				</div>
 				<div class="Licznik">
@@ -98,9 +98,55 @@
 
 		</div>
 		<div id="wyszukiwarka" class="niewidzialny"></div>
+		<div id="stats" class="niewidzialny">
+			<button onclick="zchowajs()">
+				<
+			</button>
+			<div id="nazwa"></div>
+			<div id="wykresy">
+				<div id="guralicznik">
+					<div class="Licznik">
+					<div class="TextGora">
+						<div id="PotwieW"></div>
+					</div>
+					<div class="TextDoł">
+						Potwierdzonych
+					</div>
+				</div>
+				<div class="Licznik">
+					<div class="TextGora">
+						<div id="SmierciW"></div>
+					</div>
+					<div class="TextDoł">
+						Śmiertelnych
+					</div>
+				</div>
+				<div class="Licznik">
+					<div class="TextGora">
+						<div id="WyzdW"></div>
+					</div>
+					<div class="TextDoł">
+						Wyzdrowiałych
+					</div>
+				</div>
+				<div class="Licznik">
+					<div class="TextGora">
+						<div id="ChorW"></div>
+					</div>
+					<div class="TextDoł">
+						Chorzy
+					</div>
+				</div>
+			
+			</div>
+				<div class="wykres">
+					<h1>WSZYSTKIE PRZYPADKI</h1>
+					<canvas id="wyChart" width="1000px" height="330px"></canvas><br>
+				</div>
+			</div>
 	</div>
 	<div id="loader" class="widzialny"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-	<div id="Stopka">Wersja: v0.1<br>Strona stworzona przez: <a href="https://lukasz-ciszewski.github.io">Łukasz Ciszewskiego</a> - Ciszewski.biznes@protonmail.com<br><div id="Dane"></div></div>
+	<div id="Stopka">Wersja: v0.2<br>Strona stworzona przez: <a href="https://lukasz-ciszewski.github.io">Łukasz Ciszewskiego</a> - Ciszewski.biznes@protonmail.com<br><div id="Dane"></div></div>
 </div>
 </body>
 </html>
