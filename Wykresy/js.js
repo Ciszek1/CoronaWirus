@@ -84,7 +84,7 @@ fetch('https://covid19.mathdro.id/api/daily')
         for (let f = 0; f < data.length; f++) {
             bdataC.push(dane[f].totalConfirmed);
             bdataZ.push(dane[f].totalRecovered);
-            blables.push(dane[f].reportDateString);
+            blables.push(dane[f].reportDate);
 
         }
         const ctx = document.getElementById('wyChart').getContext('2d');
@@ -132,7 +132,7 @@ fetch('https://covid19.mathdro.id/api/daily')
         for (let f = 0; f < data.length; f++) {
             vdataC.push(dane[f].deltaConfirmed);
             vdataZ.push(dane[f].deltaRecovered);
-            vlables.push(dane[f].reportDateString);
+            vlables.push(dane[f].reportDate);
 
         }
         const ctx = document.getElementById('xyChart').getContext('2d');
