@@ -11,6 +11,14 @@ function openNav() {
 	document.getElementById("stats").classList.remove("widzialny");
 	document.getElementById("stats").classList.add("niewidzialny");
   }
+  function chowanie(co){
+	document.querySelector(co).classList.remove("widzialny");
+	document.querySelector(co).classList.add("niewidzialny");
+  }
+  function powarz(co){
+	document.querySelector(co).classList.add("widzialny");
+	document.querySelector(co).classList.remove("niewidzialny");
+  }
 
 
 
@@ -38,6 +46,7 @@ function start(){
 		var co = data[this.options.myCustomId].cases;
 		var de = data[this.options.myCustomId].deaths;
 		var re = data[this.options.myCustomId].recovered;
+		var pr = data[this.options.myCustomId].countryInfo.iso3;
 		var tc = co -de -re;
 		document.querySelector('#nazwa').innerHTML = "<img width='90px' height='60px' src="+fl+">"+na;
 		document.querySelector('#PotwieW').innerHTML = co;
@@ -46,28 +55,22 @@ function start(){
 		document.querySelector('#ChorW').innerHTML = tc;
 
 
-		fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_particular_country.php?country="+na, {
-			"method": "GET",
-			"headers": {
-				"x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-				"x-rapidapi-key": "2ac3b3f824msh4f3d4828a0f7025p1d642djsn81b28239a293"
-			}
-		})
+		fetch("https://covidapi.info/api/v1/country/"+pr+"/timeseries/2019-01-10/2021-08-19")
 		.then((response) => {
 		return response.json();
 		})
 		.then((data) => {
-		console.log(data);
-		/*const dane = data.stat_by_country;
+		const dane = data.result;
         const blables = [];
-        const bdataC = [];
-        for (let f = 0; f < dane.length; f=f+50) {
-			console.log(f);
-
-            bdataC.push(dane[f].total_cases);
-            blables.push(dane[f].record_date);
-
-        }
+		const bdataC = [];
+		const bdataR = [];
+		const bdataZ = [];
+		for (let i = 0; i < dane.length; i++) {
+			bdataC.push(dane[i].confirmed);
+			bdataR.push(dane[i].recovered);
+			bdataZ.push(dane[i].deaths);
+            blables.push(dane[i].date);
+		}
         const ctx = document.getElementById('wyChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'line',
@@ -79,7 +82,19 @@ function start(){
                     //backgroundColor: 'rgba(255, 99, 132)',
                     borderColor: 'rgba(255, 99, 132)',
                     borderWidth: 1
-                }]
+                },{
+					label: 'Zgony',
+					data: bdataZ,
+					//backgroundColor: 'rgba(0, 0, 0)',
+					borderColor: 'rgba(0, 0, 0)',
+					borderWidth: 1
+				},{
+					label: 'Wyleczeni',
+					data: bdataR,
+					//backgroundColor: 'rgb(0, 255, 0)',
+					borderColor: 'rgb(0, 255, 0)',
+					borderWidth: 1
+				}]
             },
             options: {
                 responsive: false,
@@ -92,8 +107,7 @@ function start(){
                     }]
                 }
             }
-        });*/
-
+        });
 
 
 
@@ -109,13 +123,14 @@ function start(){
 	  function onClick(e) {
 		console.log(this.options.myCustomId);
 		var na = data[this.options.myCustomId].country;
+		var fl = data[this.options.myCustomId].countryInfo.flag;
 		var cn = data[this.options.myCustomId].countryInfo.iso2;
 		var co = data[this.options.myCustomId].cases;
 		var de = data[this.options.myCustomId].deaths;
 		var re = data[this.options.myCustomId].recovered;
 		var fl = data[this.options.myCustomId].countryInfo.flag;
 		var terzz = co - de - re;
-		this.bindPopup('<center><div class="hes"><img width="20px" height="17px" src="https://www.countryflags.io/'+cn+'/flat/24.png">  '+na+'</div><div class="gh"><div class="conf">'+co+'</div><div class="nap">Confirmed'+'</div></br><div class="ded">'+de+'</div><div class="nap">'+'Deaths'+'</div></br><div class="rec">'+re+'</div><div class="nap">Recovered'+'</div></br><div class="exi">'+terzz+'</div><div class="nap">Existing</div>').addTo(mymap);
+		this.bindPopup('<center><div class="hes"><img width="28px" height="17px" src="'+fl+'">  '+na+'</div><div class="gh"><div class="conf">'+co+'</div><div class="nap">Confirmed'+'</div></br><div class="ded">'+de+'</div><div class="nap">'+'Deaths'+'</div></br><div class="rec">'+re+'</div><div class="nap">Recovered'+'</div></br><div class="exi">'+terzz+'</div><div class="nap">Existing</div>').addTo(mymap);
 		this.openPopup();
 	
 		document.querySelector('#Wysz').oninput = function (){
@@ -166,7 +181,7 @@ function start(){
 		})
 		.then((data) => {
 		console.log(data);
-	document.querySelector('#Dane').innerHTML = "Dane z "+"Teraz"+". Ze strony <a href='https://coronavirus-tracker-api.herokuapp.com/'>https://coronavirus-tracker-api.herokuapp.com/</a>";
+	document.querySelector('#Dane').innerHTML = "Dane z "+"Teraz"+". Ze strony <a href='https://corona.lmao.ninja/countries'>https://corona.lmao.ninja/countries</a>";
 	document.querySelector('#Potwie').innerHTML = data.cases;
 	document.querySelector('#Zmar').innerHTML = data.deaths;
 	document.querySelector('#Wyzdr').innerHTML = data.recovered;
@@ -180,7 +195,20 @@ function start(){
 
     for (var i = 0; i <= data.length; i++) {
     	var markers = L.marker([data[i].countryInfo.lat, data[i].countryInfo.long], {myCustomId: i})
-    	.addTo(mymap).on('mouseover', onClick).on('click', stats);
+		.addTo(mymap).on('mouseover', onClick).on('click', stats);
+		
+		/*var wielkosc = data[i].cases / 500  * 100000;
+		if(wielkosc > 1000000)
+		{
+			wielkosc = 1000000;
+		}
+		var circle = L.circle([data[i].countryInfo.lat, data[i].countryInfo.long], {
+			myCustomId: i,
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.5,
+			radius: wielkosc
+		}).addTo(mymap).on('mouseover', onClick).on('click', stats);*/
 	}
 
 
