@@ -81,28 +81,36 @@ fetch('https://covid19.mathdro.id/api/daily')
         const blables = [];
         const bdataC = [];
         const bdataZ = [];
+        const bdataZZ = [];
         for (let f = 0; f < data.length; f++) {
-            bdataC.push(dane[f].totalConfirmed);
-            bdataZ.push(dane[f].totalRecovered);
+            bdataC.push(dane[f].confirmed.total);
+            bdataZ.push(dane[f].recovered.total);
+            bdataZZ.push(dane[f].deaths.total);
             blables.push(dane[f].reportDate);
 
         }
         const ctx = document.getElementById('wyChart').getContext('2d');
         const myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: blables,
                 datasets: [{
                     label: 'Chorzy',
                     data: bdataC,
-                    backgroundColor: 'rgba(255, 99, 132)',
+                   // backgroundColor: 'rgba(255,255,255)',
                     borderColor: 'rgba(255, 99, 132)',
                     borderWidth: 1
                 },{
                     label: 'Wyleczeni',
                     data: bdataZ,
-                    backgroundColor: 'rgb(0, 255, 0)',
+                    //backgroundColor: 'rgb(255,255,255)',
                     borderColor: 'rgb(0, 255, 0)',
+                    borderWidth: 1
+                },{
+                    label: 'Zgony',
+                    data: bdataZZ,
+                    //backgroundColor: 'rgb(255,255,255)',
+                    borderColor: 'rgb(102, 102, 102)',
                     borderWidth: 1
                 }]
             },
@@ -129,31 +137,39 @@ fetch('https://covid19.mathdro.id/api/daily')
         const vlables = [];
         const vdataC = [];
         const vdataZ = [];
+        const vdataZZ = [];
         for (let f = 0; f < data.length; f++) {
             vdataC.push(dane[f].deltaConfirmed);
             vdataZ.push(dane[f].deltaRecovered);
+            //vdataZZ.push(dane[f].deltaConfirmedDetail);
             vlables.push(dane[f].reportDate);
 
         }
         const ctx = document.getElementById('xyChart').getContext('2d');
         const myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             label: "XDD",
             data: {
                 labels: vlables,
                 datasets: [{
                     label: 'Chorzy',
                     data: vdataC,
-                    backgroundColor: 'rgba(255, 99, 132)',
+                    //backgroundColor: 'rgba(255, 99, 132)',
                     borderColor: 'rgba(255, 99, 132)',
                     borderWidth: 1
                 },{
                     label: 'Zyleczeni',
                     data: vdataZ,
-                    backgroundColor: 'rgb(0, 255, 0)',
+                    //backgroundColor: 'rgb(0, 255, 0)',
                     borderColor: 'rgb(0, 255, 0)',
                     borderWidth: 1
-                }]
+                }/*,{
+                    label: 'Zgony',
+                    data: vdataZZ,
+                    //backgroundColor: 'rgb(102, 102, 102)',
+                    borderColor: 'rgb(102, 102, 102)',
+                    borderWidth: 1
+                }*/]
             },
             options: {
                 responsive: false,
