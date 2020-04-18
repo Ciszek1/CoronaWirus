@@ -175,7 +175,7 @@ function start(){
 
 
 
-	fetch('https://corona.lmao.ninja/all')
+	fetch('https://corona.lmao.ninja/v2/all')
 	.then((response) => {
 		return response.json();
 		})
