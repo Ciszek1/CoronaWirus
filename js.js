@@ -31,7 +31,7 @@ function start(){
         maxZoom: 19,
         attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
       }).addTo(mymap);
-	fetch('https://corona.lmao.ninja/countries')
+	fetch('https://corona.lmao.ninja/v2/countries')
 	.then((response) => {
     return response.json();
 	})
