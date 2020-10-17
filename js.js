@@ -30,7 +30,14 @@ function start(){
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-      }).addTo(mymap);
+	  }).addTo(mymap);
+	  var ICON = L.icon({
+		iconUrl: 'Znacznik.png',
+	
+		iconSize:     [25, 41], // size of the icon
+		//iconAnchor:   [10, -4], // point of the icon which will correspond to marker's location
+		//popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+	});
 	fetch('https://corona.lmao.ninja/v2/countries')
 	.then((response) => {
     return response.json();
@@ -46,6 +53,7 @@ function start(){
 		var co = data[this.options.myCustomId].cases;
 		var de = data[this.options.myCustomId].deaths;
 		var re = data[this.options.myCustomId].recovered;
+		var dp = data[this.options.myCustomId].todayCases;
 		var pr = data[this.options.myCustomId].countryInfo.iso3;
 		var tc = co -de -re;
 		document.querySelector('#nazwa').innerHTML = "<img width='90px' height='60px' src="+fl+">"+na;
@@ -53,6 +61,7 @@ function start(){
 		document.querySelector('#SmierciW').innerHTML = de;
 		document.querySelector('#WyzdW').innerHTML = re;
 		document.querySelector('#ChorW').innerHTML = tc;
+		document.querySelector('#NoweP').innerHTML = dp;
 
 
 		fetch("https://covidapi.info/api/v1/country/"+pr+"/timeseries/2019-01-10/2021-08-19")
@@ -165,7 +174,7 @@ function start(){
 	
 				const key = ff.find(ff => ff.country === result[i].country);
 				console.log(key);
-				to = to+"<div class='wyszukane'><div class='flag'><img width='70px' height='40px' src='"+result[i].countryInfo.flag+"' /></div><div class='info'><div class='NazwaKraju'>Kraj: "+result[i].country+"</div><br/><div class='info2'> Potwierdzone: "+result[i].cases+"</div></div></div><br/>";
+				to = to+"<div class='wyszukane'><div class='flag'><img width='70px' height='40px' src='"+result[i].countryInfo.flag+"' /></div><div class='info'><div class='NazwaKraju'>Kraj: "+result[i].country+"</div><br/><div class='info2'> Potwierdzone: "+result[i].cases+" | Śmierci: "+result[i].deaths+" | Wyzdrowiałych: "+result[i].recovered+"</div></div></div><br/>";
 			}
 			document.querySelector("#wyszukiwarka").innerHTML = to;
 	
@@ -194,7 +203,7 @@ function start(){
 
 
     for (var i = 0; i <= data.length; i++) {
-    	var markers = L.marker([data[i].countryInfo.lat, data[i].countryInfo.long], {myCustomId: i})
+    	var markers = L.marker([data[i].countryInfo.lat, data[i].countryInfo.long], {myCustomId: i/*, icon: ICON*/})
 		.addTo(mymap).on('mouseover', onClick).on('click', stats);
 		
 		/*var wielkosc = data[i].cases / 500  * 100000;
