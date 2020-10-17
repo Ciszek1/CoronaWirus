@@ -106,7 +106,7 @@ input[type=text]:focus
 #guralicznik > .Licznik:nth-child(1){
 	margin-left: auto;
 }
-#guralicznik > .Licznik:nth-child(4){
+#guralicznik > .Licznik:nth-child(5){
 	margin-right: auto;
 }
 #guralicznik > .Licznik:nth-child(1):hover {
@@ -122,6 +122,10 @@ input[type=text]:focus
 	border-color: #61ce81;
 }
 #guralicznik > .Licznik:nth-child(4):hover {
+	color: #286eff !important;
+	border-color: #286eff;
+}
+#guralicznik > .Licznik:nth-child(5):hover {
 	color: #286eff !important;
 	border-color: #286eff;
 }
