@@ -27,9 +27,9 @@ function start(){
 	var mymap = L.map('Map', {
 		    minZoom: 2
 	}).setView([51.505, -0.09], 2);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         maxZoom: 19,
-        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
 	  }).addTo(mymap);
 	  var ICON = L.icon({
 		iconUrl: 'Znacznik.png',
@@ -38,7 +38,7 @@ function start(){
 		//iconAnchor:   [10, -4], // point of the icon which will correspond to marker's location
 		//popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
 	});
-	fetch('https://corona.lmao.ninja/v2/countries')
+	fetch('https://disease.sh/v3/covid-19/countries')
 	.then((response) => {
     return response.json();
 	})
@@ -184,7 +184,7 @@ function start(){
 
 
 
-	fetch('https://corona.lmao.ninja/v2/all')
+	fetch('https://disease.sh/v2/all')
 	.then((response) => {
 		return response.json();
 		})
