@@ -118,11 +118,11 @@ function start(){
             }
         });
 
-
-
+		myChart.update();
 
 
 		});
+
 
 
 		console.log("GODD "+this.options.myCustomId);
